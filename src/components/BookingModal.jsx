@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { playFanfare, playPop, playBark, playMeow } from '../utils/sound';
-import { X, Sparkles, CheckCircle2 } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, Dog, Cat, Bird, Heart, Flame, Smile, Trophy } from 'lucide-react';
 
 export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
   const [petName, setPetName] = useState('');
@@ -94,25 +94,28 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {[
-                      { id: 'dog', emoji: '🐶', label: 'Perro', sound: playBark },
-                      { id: 'cat', emoji: '🐱', label: 'Gato', sound: playMeow },
-                      { id: 'bird', emoji: '🦜', label: 'Ave', sound: playPop },
-                      { id: 'other', emoji: '🐰', label: 'Otro', sound: playPop },
-                    ].map((sp) => (
-                      <button
-                        key={sp.id}
-                        type="button"
-                        onClick={() => {
-                          setPetType(sp.id);
-                          sp.sound();
-                        }}
-                        className={`py-2 px-1 border-3 border-maxi-dark rounded-xl font-display font-black text-xs flex flex-col items-center gap-1 transition-all
-                          ${petType === sp.id ? 'bg-maxi-pink text-white shadow-brutal-sm scale-105' : 'bg-gray-100 hover:bg-gray-200'}`}
-                      >
-                        <span className="text-xl">{sp.emoji}</span>
-                        <span>{sp.label}</span>
-                      </button>
-                    ))}
+                      { id: 'dog', icon: Dog, label: 'Perro', sound: playBark },
+                      { id: 'cat', icon: Cat, label: 'Gato', sound: playMeow },
+                      { id: 'bird', icon: Bird, label: 'Ave', sound: playPop },
+                      { id: 'other', icon: Heart, label: 'Otro', sound: playPop },
+                    ].map((sp) => {
+                      const Icon = sp.icon;
+                      return (
+                        <button
+                          key={sp.id}
+                          type="button"
+                          onClick={() => {
+                            setPetType(sp.id);
+                            sp.sound();
+                          }}
+                          className={`py-2.5 px-1 border-3 border-maxi-dark rounded-xl font-archivo text-xs uppercase flex flex-col items-center gap-1.5 transition-all
+                            ${petType === sp.id ? 'bg-maxi-pink text-white shadow-brutal-sm scale-105' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}
+                        >
+                          <Icon className="w-5 h-5 stroke-[2.5]" />
+                          <span>{sp.label}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -120,8 +123,9 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
                 <div className="bg-maxi-cyan/15 border-3 border-maxi-dark p-3 rounded-xl">
                   <div className="flex justify-between font-mono font-black text-xs uppercase mb-2">
                     <span>Nivel de Drama de tu mascota:</span>
-                    <span className="bg-maxi-pink text-white px-2 py-0.5 rounded border border-black">
-                      {dramaLevel}/10 {dramaLevel >= 8 ? '🔥 DRAMÁTICO TOTAL' : '😎 TRANQUILO'}
+                    <span className="bg-maxi-pink text-white px-2 py-0.5 rounded border border-black inline-flex items-center gap-1">
+                      {dramaLevel >= 8 ? <Flame className="w-3.5 h-3.5 text-maxi-yellow fill-maxi-yellow" /> : <Smile className="w-3.5 h-3.5 text-maxi-yellow" />}
+                      <span>{dramaLevel}/10 {dramaLevel >= 8 ? 'DRAMÁTICO TOTAL' : 'TRANQUILO'}</span>
                     </span>
                   </div>
                   <input
@@ -142,7 +146,7 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-maxi-green text-maxi-dark font-display font-black text-lg py-3.5 border-4 border-maxi-dark shadow-brutal hover:shadow-brutal-lg transition-all rounded-2xl flex items-center justify-center gap-2 mt-4 cursor-pointer"
+                  className="w-full bg-maxi-green text-maxi-dark font-archivo text-base uppercase tracking-wider py-3.5 border-4 border-maxi-dark shadow-brutal hover:shadow-brutal-lg transition-all rounded-2xl flex items-center justify-center gap-2 mt-4 cursor-pointer"
                 >
                   <Sparkles className="w-5 h-5 text-black" />
                   <span>¡CONFIRMAR CITA CON PREMIOS!</span>
@@ -154,11 +158,11 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="w-20 h-20 bg-maxi-green border-4 border-maxi-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-brutal text-4xl"
+                className="w-20 h-20 bg-maxi-green border-4 border-maxi-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-brutal text-black"
               >
-                🎉
+                <Trophy className="w-10 h-10 stroke-[2.5]" />
               </motion.div>
-              <h3 className="font-display font-black text-3xl text-maxi-dark uppercase">
+              <h3 className="font-dela text-2xl text-maxi-dark uppercase">
                 ¡CITA AGENDADA CON ÉXITO!
               </h3>
               <p className="font-body font-bold text-gray-800 mt-2 max-w-sm mx-auto">
@@ -166,7 +170,7 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
               </p>
               <button
                 onClick={handleClose}
-                className="mt-6 bg-maxi-yellow text-black font-display font-black px-6 py-2.5 border-3 border-maxi-dark shadow-brutal rounded-xl hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+                className="mt-6 bg-maxi-yellow text-black font-archivo uppercase text-xs tracking-wider px-6 py-2.5 border-3 border-maxi-dark shadow-brutal rounded-xl hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
               >
                 CERRAR Y SEGUIR EXPLORANDO
               </button>

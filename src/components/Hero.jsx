@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { StickerPlayground } from './StickerPlayground';
 import { Sparkles, Heart, Activity, ShieldCheck, Flame, Star, Gift, Dog, Cat, HeartPulse } from 'lucide-react';
+import { playFanfare, playBoing, playBark, playMeow } from '../utils/sound';
 
 // SVG Component for Animal Paw Print
 const PawPrint = ({ className = "w-6 h-6", ...props }) => (
@@ -159,7 +160,7 @@ export const Hero = ({ onOpenBooking }) => {
         </div>
 
         {/* Giant CTAs */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 relative z-30">
           <motion.button
             whileHover={{ scale: 1.05, rotate: -1 }}
             whileTap={{ scale: 0.95 }}

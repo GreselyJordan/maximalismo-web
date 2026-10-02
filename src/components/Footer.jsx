@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import { playPop, playBark } from '../utils/sound';
-import { Heart, Instagram, Music, MessageCircle, ArrowUp } from 'lucide-react';
+import { Heart, Instagram, Music, MessageCircle, ArrowUp, PawPrint, Zap, Sparkles } from 'lucide-react';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -16,11 +16,11 @@ export const Footer = () => {
       <div className="bg-maxi-yellow text-maxi-dark border-b-4 border-black py-2">
         <Marquee speed={50} gradient={false}>
           <div className="flex items-center gap-6 font-mono font-black text-xs md:text-sm uppercase tracking-widest">
-            <span>🐾 NINGÚN ANIMAL FUE MOLESTADO EN LA CREACIÓN DE ESTA PÁGINA</span>
-            <span>⚡ PREMIOS 100% LIBRES DE GRANO</span>
-            <span>❤️ AMOR ANIMAL SIN LÍMITES</span>
-            <span>🐶 GATOS Y PERROS VIVIENDO EN PAZ</span>
-            <span>✨ CLÍNICA VETERINARIA MAXIMALISTA</span>
+            <span className="flex items-center gap-2"><PawPrint className="w-4 h-4 fill-black" /> NINGÚN ANIMAL FUE MOLESTADO EN LA CREACIÓN DE ESTA PÁGINA</span>
+            <span className="flex items-center gap-2"><Zap className="w-4 h-4 fill-black" /> PREMIOS 100% LIBRES DE GRANO</span>
+            <span className="flex items-center gap-2"><Heart className="w-4 h-4 fill-red-500 text-red-500" /> AMOR ANIMAL SIN LÍMITES</span>
+            <span className="flex items-center gap-2"><PawPrint className="w-4 h-4 fill-black" /> GATOS Y PERROS VIVIENDO EN PAZ</span>
+            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-black" /> CLÍNICA VETERINARIA MAXIMALISTA</span>
           </div>
         </Marquee>
       </div>
@@ -29,9 +29,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
           {/* Col 1: Brand & Bio */}
           <div className="space-y-4 md:col-span-2">
-            <div className="inline-block bg-maxi-pink px-4 py-2 border-3 border-white shadow-brutal-yellow rounded-xl transform -rotate-1">
-              <h2 className="font-dela text-xl tracking-tight text-white">
-                CHAOS<span className="text-maxi-yellow">VET</span> 🐾
+            <div className="inline-flex items-center gap-2 bg-maxi-pink px-4 py-2 border-3 border-white shadow-brutal-yellow rounded-xl transform -rotate-1">
+              <h2 className="font-dela text-xl tracking-tight text-white flex items-center gap-2">
+                <span>CHAOS<span className="text-maxi-yellow">VET</span></span>
+                <PawPrint className="w-5 h-5 fill-white text-white" />
               </h2>
             </div>
             <p className="font-body text-gray-300 font-bold text-base max-w-md">

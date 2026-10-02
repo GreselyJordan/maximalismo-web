@@ -115,7 +115,9 @@ export const ServicesSection = ({ onOpenBooking }) => {
             >
               {/* Badge */}
               <div className="flex justify-between items-start mb-4">
-                <span className="text-4xl filter drop-shadow">{srv.emoji}</span>
+                <div className="w-12 h-12 rounded-xl bg-maxi-yellow border-3 border-maxi-dark flex items-center justify-center shadow-brutal-sm">
+                  <srv.icon className="w-6 h-6 text-black stroke-[2.5]" />
+                </div>
                 <span className={`${srv.badgeColor} border-2 border-maxi-dark px-3 py-1 font-mono font-black text-xs uppercase shadow-brutal-sm rounded-lg`}>
                   {srv.badge}
                 </span>
@@ -159,7 +161,10 @@ export const ServicesSection = ({ onOpenBooking }) => {
                     className="overflow-hidden"
                   >
                     <div className="mt-4 pt-3 border-t-2 border-black/20 text-xs font-mono font-bold bg-white/95 p-3 rounded-lg border-2 border-black shadow-inner">
-                      <p className="text-gray-900">✨ {srv.details}</p>
+                      <p className="text-gray-900 flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-maxi-pink flex-shrink-0" />
+                        <span>{srv.details}</span>
+                      </p>
                     </div>
                   </motion.div>
                 )}
