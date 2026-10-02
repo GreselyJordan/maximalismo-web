@@ -76,8 +76,8 @@ export const StickerPlayground = () => {
             <motion.div
               key={stk.id}
               drag
-              dragConstraints={{ left: -60, right: 60, top: -40, bottom: 150 }}
-              dragElastic={0.2}
+              dragConstraints={{ left: -120, right: 120, top: -30, bottom: 220 }}
+              dragElastic={0.25}
               whileHover={{ scale: 1.12, rotate: 0 }}
               whileTap={{ scale: 0.95 }}
               onDragStart={stk.sound}
