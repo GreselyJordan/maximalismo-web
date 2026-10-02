@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #fdfbf7;
+    background-image: radial-gradient(#121212 1px, transparent 1px);
+    background-size: 24px 24px;
+    cursor: default;
+  }
+}
+
+/* Custom styles for maximalist aesthetic */
+.brutal-border {
+  border: 4px solid #121212;
+}
+
+.brutal-border-sm {
+  border: 3px solid #121212;
+}
+
+.tape-effect {
+  position: relative;
+}
+.tape-effect::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 24px;
+  background: rgba(255, 230, 0, 0.75);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+}
+::-webkit-scrollbar-track {
+  background: #FFE600;
+  border-left: 3px solid #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF2E93;
+  border: 3px solid #121212;
+}
