@@ -14,7 +14,7 @@ const services = [
     cardBg: 'bg-white',
     price: '$25 USD',
     details: 'Incluye revisión oftalmológica, auscultación cardíaca, pesado y golosina premium.',
-    rotate: '-rotate-1',
+    rotate: 'sm:-rotate-1',
   },
   {
     id: 'vacunacion',
@@ -26,7 +26,7 @@ const services = [
     cardBg: 'bg-maxi-cyan/15',
     price: '$20 USD',
     details: 'Cartilla de vacunación digitalizada con recordatorios automáticos por WhatsApp.',
-    rotate: 'rotate-2',
+    rotate: 'sm:rotate-2',
   },
   {
     id: 'estetica',
@@ -38,7 +38,7 @@ const services = [
     cardBg: 'bg-white',
     price: '$35 USD',
     details: 'Usamos agua tibia termoregulada y secadores supersilenciosos que no asustan a tu peludo.',
-    rotate: '-rotate-2',
+    rotate: 'sm:-rotate-2',
   },
   {
     id: 'urgencias',
@@ -50,7 +50,7 @@ const services = [
     cardBg: 'bg-amber-100',
     price: 'PRIORIDAD 1',
     details: 'Laboratorio propio con resultados en 15 minutos y sala de oxígeno presurizada.',
-    rotate: 'rotate-1',
+    rotate: 'sm:rotate-1',
   },
   {
     id: 'odontologia',
@@ -62,7 +62,7 @@ const services = [
     cardBg: 'bg-white',
     price: '$45 USD',
     details: 'Anestesia inhalatoria inhalada ultra segura con monitor multiparamétrico constante.',
-    rotate: '-rotate-1',
+    rotate: 'sm:-rotate-1',
   },
   {
     id: 'exoticos',
@@ -74,7 +74,7 @@ const services = [
     cardBg: 'bg-maxi-green/15',
     price: '$30 USD',
     details: 'Hábitats de recuperación con temperatura y humedad controlada para cada especie.',
-    rotate: 'rotate-2',
+    rotate: 'sm:rotate-2',
   },
 ];
 
@@ -89,20 +89,20 @@ export const ServicesSection = ({ onOpenBooking }) => {
   return (
     <section id="servicios" className="py-20 px-4 max-w-7xl mx-auto">
       {/* Title */}
-      <div className="text-center mb-16">
-        <span className="bg-maxi-yellow border-3 border-maxi-dark shadow-brutal-sm px-4 py-1.5 font-mono font-bold text-sm uppercase rounded-full inline-block mb-3">
+      <div className="text-center mb-12 sm:mb-16 px-2">
+        <span className="bg-maxi-yellow border-3 border-maxi-dark shadow-brutal-sm px-3.5 py-1 font-mono font-bold text-xs sm:text-sm uppercase rounded-full inline-block mb-3">
           ⚡ MENÚ DE SERVICIOS MÉDICOS
         </span>
-        <h2 className="font-dela text-2xl sm:text-4xl md:text-5xl text-maxi-dark uppercase tracking-tight leading-snug">
+        <h2 className="font-dela text-xl sm:text-3xl md:text-5xl text-maxi-dark uppercase tracking-tight leading-snug">
           ¿QUÉ NECESITA TU <span className="underline decoration-maxi-pink decoration-wavy">MEJOR AMIGO</span> HOY?
         </h2>
-        <p className="mt-4 text-gray-700 font-bold max-w-xl mx-auto text-base sm:text-lg">
+        <p className="mt-3 sm:mt-4 text-gray-700 font-bold max-w-xl mx-auto text-sm sm:text-lg">
           Toca cualquiera de las tarjetas para desplegar más información y ver los detalles del cuidado.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {services.map((srv) => {
           const isExpanded = selectedService?.id === srv.id;
 
@@ -111,7 +111,7 @@ export const ServicesSection = ({ onOpenBooking }) => {
               key={srv.id}
               whileHover={{ scale: 1.02, y: -4 }}
               onClick={() => handleCardClick(srv)}
-              className={`cursor-pointer ${srv.cardBg} border-4 border-maxi-dark p-6 rounded-2xl shadow-brutal hover:shadow-brutal-lg transition-shadow ${srv.rotate} relative flex flex-col justify-between`}
+              className={`cursor-pointer ${srv.cardBg} border-3 sm:border-4 border-maxi-dark p-5 sm:p-6 rounded-2xl shadow-brutal hover:shadow-brutal-lg transition-shadow rotate-0 ${srv.rotate} relative flex flex-col justify-between`}
             >
               {/* Badge */}
               <div className="flex justify-between items-start mb-4">

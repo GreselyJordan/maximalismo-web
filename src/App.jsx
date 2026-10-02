@@ -46,18 +46,18 @@ export function App() {
       <motion.div
         drag
         dragConstraints={{ left: -50, right: 50, top: -50, bottom: 50 }}
-        whileHover={{ scale: 1.1, rotate: 4 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.06, rotate: 3 }}
+        whileTap={{ scale: 0.94 }}
         onClick={() => {
           playBark();
           handleOpenBooking('Urgencia 24/7');
         }}
-        className="fixed bottom-6 right-6 z-40 bg-maxi-pink text-white border-4 border-maxi-dark p-3.5 rounded-2xl shadow-brutal-xl cursor-pointer flex items-center gap-2.5 group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-maxi-pink text-white border-3 sm:border-4 border-maxi-dark p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-brutal sm:shadow-brutal-xl cursor-pointer flex items-center gap-2 sm:gap-2.5 group select-none"
       >
-        <div className="w-9 h-9 rounded-xl bg-maxi-yellow border-2 border-black flex items-center justify-center animate-bounce text-black">
-          <Siren className="w-5 h-5 stroke-[2.5]" />
+        <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-maxi-yellow border-2 border-black flex items-center justify-center animate-bounce text-black flex-shrink-0">
+          <Siren className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
         </div>
-        <div className="font-archivo text-xs uppercase leading-tight">
+        <div className="font-archivo text-[10px] sm:text-xs uppercase leading-tight">
           <p className="text-maxi-yellow">¿EMERGENCIA?</p>
           <p>TOCA AQUÍ</p>
         </div>

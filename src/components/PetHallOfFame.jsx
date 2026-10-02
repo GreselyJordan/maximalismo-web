@@ -14,7 +14,7 @@ const patients = [
     stampIcon: Trophy,
     stampBg: 'bg-maxi-yellow text-black',
     image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=500&q=80',
-    rotate: '-rotate-3',
+    rotate: 'sm:-rotate-3',
     sound: playBark,
   },
   {
@@ -27,7 +27,7 @@ const patients = [
     stampIcon: Crown,
     stampBg: 'bg-maxi-pink text-white',
     image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80',
-    rotate: 'rotate-4',
+    rotate: 'sm:rotate-4',
     sound: playMeow,
   },
   {
@@ -40,7 +40,7 @@ const patients = [
     stampIcon: Star,
     stampBg: 'bg-maxi-green text-black',
     image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=500&q=80',
-    rotate: '-rotate-2',
+    rotate: 'sm:-rotate-2',
     sound: playBark,
   },
   {
@@ -53,7 +53,7 @@ const patients = [
     stampIcon: Sparkles,
     stampBg: 'bg-maxi-cyan text-black',
     image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=500&q=80',
-    rotate: 'rotate-3',
+    rotate: 'sm:rotate-3',
     sound: playBoing,
   },
 ];
@@ -69,17 +69,17 @@ export const PetHallOfFame = () => {
               <Camera className="w-3.5 h-3.5" />
               <span>POLAROID WALL OF FAME</span>
             </div>
-            <h2 className="font-dela text-2xl sm:text-4xl md:text-5xl text-maxi-dark uppercase tracking-tight leading-snug">
+            <h2 className="font-dela text-xl sm:text-3xl md:text-5xl text-maxi-dark uppercase tracking-tight leading-snug">
               PACIENTES <span className="text-maxi-purple">ESTRELLA</span> DEL MES
             </h2>
-            <p className="font-body text-gray-700 font-bold text-base mt-2">
+            <p className="font-body text-gray-700 font-bold text-sm sm:text-base mt-2">
               Haz clic sobre cualquier foto para escuchar la reacción de cada paciente.
             </p>
           </div>
 
           <div className="bg-maxi-yellow border-3 border-maxi-dark p-3 rounded-xl shadow-brutal flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-maxi-pink border-2 border-black flex items-center justify-center text-white">
-              <PawPrint className="w-6 h-6 fill-white" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-maxi-pink border-2 border-black flex items-center justify-center text-white">
+              <PawPrint className="w-5 h-5 sm:w-6 sm:h-6 fill-white" />
             </div>
             <div className="font-mono text-xs font-bold leading-tight">
               <p>MÁS DE 12,450</p>
@@ -89,19 +89,19 @@ export const PetHallOfFame = () => {
         </div>
 
         {/* Polaroids Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {patients.map((pet) => {
             const StampIcon = pet.stampIcon;
             return (
               <motion.div
                 key={pet.id}
-                whileHover={{ scale: 1.05, rotate: 0, y: -8 }}
+                whileHover={{ scale: 1.04, rotate: 0, y: -6 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={pet.sound}
-                className={`cursor-pointer bg-white border-4 border-maxi-dark p-4 shadow-brutal-lg transition-transform ${pet.rotate} rounded-xl relative tape-effect`}
+                className={`cursor-pointer bg-white border-3 sm:border-4 border-maxi-dark p-3.5 sm:p-4 shadow-brutal sm:shadow-brutal-lg transition-transform rotate-0 ${pet.rotate} rounded-xl relative tape-effect`}
               >
                 {/* Photo */}
-                <div className="w-full h-56 bg-gray-200 border-3 border-maxi-dark rounded-lg overflow-hidden relative mb-4">
+                <div className="w-full h-48 sm:h-56 bg-gray-200 border-2 sm:border-3 border-maxi-dark rounded-lg overflow-hidden relative mb-3 sm:mb-4">
                   <img
                     src={pet.image}
                     alt={pet.name}

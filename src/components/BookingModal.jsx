@@ -38,23 +38,23 @@ export const BookingModal = ({ isOpen, onClose, preselectedService }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
         <motion.div
           initial={{ scale: 0.8, rotate: -3, opacity: 0 }}
           animate={{ scale: 1, rotate: 0, opacity: 1 }}
           exit={{ scale: 0.8, rotate: 3, opacity: 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-          className="bg-white border-4 border-maxi-dark shadow-brutal-xl rounded-3xl max-w-lg w-full p-6 sm:p-8 relative overflow-hidden"
+          className="bg-white border-4 border-maxi-dark shadow-brutal-xl rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-7 md:p-8 relative my-auto max-h-[92vh] overflow-y-auto"
         >
           {/* Top colored strip */}
-          <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-r from-maxi-pink via-maxi-yellow to-maxi-cyan border-b-3 border-maxi-dark"></div>
+          <div className="absolute top-0 left-0 right-0 h-3.5 bg-gradient-to-r from-maxi-pink via-maxi-yellow to-maxi-cyan border-b-3 border-maxi-dark"></div>
 
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 w-10 h-10 bg-maxi-yellow border-3 border-maxi-dark rounded-xl flex items-center justify-center font-black shadow-brutal-sm hover:scale-110 active:scale-95 transition-transform"
+            className="absolute top-5 right-5 sm:top-6 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 bg-maxi-yellow border-2 sm:border-3 border-maxi-dark rounded-xl flex items-center justify-center font-black shadow-brutal-sm hover:scale-110 active:scale-95 transition-transform z-10"
           >
-            <X className="w-5 h-5 text-black" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
           </button>
 
           {!isSuccess ? (

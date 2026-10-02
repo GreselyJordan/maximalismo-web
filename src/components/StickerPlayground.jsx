@@ -11,9 +11,10 @@ const stickers = [
     sound: playBark,
     bg: 'bg-maxi-yellow text-black',
     rotate: -6,
-    initialX: 20,
-    initialY: 40,
+    initialX: 10,
+    initialY: 15,
     border: 'border-maxi-dark',
+    showOnMobile: true, // Only this sticker stays visible on mobile
   },
   {
     id: 2,
@@ -21,10 +22,11 @@ const stickers = [
     text: 'Michi Boss',
     sound: playMeow,
     bg: 'bg-maxi-pink text-white',
-    rotate: 12,
-    initialX: -30,
-    initialY: 100,
+    rotate: 10,
+    initialX: -10,
+    initialY: 70,
     border: 'border-maxi-dark',
+    showOnMobile: false,
   },
   {
     id: 3,
@@ -32,10 +34,11 @@ const stickers = [
     text: 'Snack Zone',
     sound: playBoing,
     bg: 'bg-maxi-green text-black',
-    rotate: -15,
-    initialX: 60,
-    initialY: 160,
+    rotate: -12,
+    initialX: 20,
+    initialY: 140,
     border: 'border-maxi-dark',
+    showOnMobile: false,
   },
   {
     id: 4,
@@ -44,9 +47,10 @@ const stickers = [
     sound: playPop,
     bg: 'bg-maxi-cyan text-black',
     rotate: 8,
-    initialX: -50,
-    initialY: 220,
+    initialX: -15,
+    initialY: 210,
     border: 'border-maxi-dark',
+    showOnMobile: false,
   },
   {
     id: 5,
@@ -54,10 +58,11 @@ const stickers = [
     text: 'VET TOP 2026',
     sound: playBoing,
     bg: 'bg-maxi-purple text-white',
-    rotate: -10,
-    initialX: 40,
-    initialY: 290,
+    rotate: -8,
+    initialX: 25,
+    initialY: 260,
     border: 'border-maxi-dark',
+    showOnMobile: false,
   },
 ];
 
@@ -71,9 +76,9 @@ export const StickerPlayground = () => {
             <motion.div
               key={stk.id}
               drag
-              dragConstraints={{ left: -100, right: 100, top: -50, bottom: 200 }}
+              dragConstraints={{ left: -60, right: 60, top: -40, bottom: 150 }}
               dragElastic={0.2}
-              whileHover={{ scale: 1.15, rotate: 0 }}
+              whileHover={{ scale: 1.12, rotate: 0 }}
               whileTap={{ scale: 0.95 }}
               onDragStart={stk.sound}
               onClick={stk.sound}
@@ -83,17 +88,18 @@ export const StickerPlayground = () => {
                 left: stk.initialX <= 0 ? `${Math.abs(stk.initialX)}px` : 'auto',
               }}
               className={`pointer-events-auto absolute cursor-grab active:cursor-grabbing select-none
-                ${stk.bg} border-4 ${stk.border} shadow-brutal px-4 py-2 font-archivo text-xs uppercase tracking-wider
-                flex items-center gap-2 rounded-xl transition-shadow hover:shadow-brutal-lg`}
+                ${stk.showOnMobile ? 'flex' : 'hidden sm:flex'}
+                ${stk.bg} border-2 sm:border-4 ${stk.border} shadow-brutal-sm sm:shadow-brutal px-2.5 py-1.5 sm:px-4 sm:py-2 font-archivo text-[10px] sm:text-xs uppercase tracking-wider
+                items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl transition-shadow hover:shadow-brutal-lg`}
               initial={{ scale: 0, rotate: stk.rotate }}
               animate={{ scale: 1, rotate: stk.rotate }}
               transition={{ type: 'spring', stiffness: 260, damping: 20, delay: stk.id * 0.1 }}
             >
-              <div className="w-6 h-6 flex items-center justify-center">
-                <Icon className="w-5 h-5 stroke-[2.5]" />
+              <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
               </div>
               <span>{stk.text}</span>
-              <span className="text-[10px] bg-black text-white px-1.5 py-0.5 rounded font-mono font-bold tracking-tighter">
+              <span className="text-[9px] sm:text-[10px] bg-black text-white px-1 sm:px-1.5 py-0.5 rounded font-mono font-bold tracking-tighter">
                 ¡ARRASTRA!
               </span>
             </motion.div>
